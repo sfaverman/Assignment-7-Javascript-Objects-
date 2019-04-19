@@ -1,5 +1,10 @@
 /*eslint-env browser*/
 
+var play = window.document.getElementById("play"),
+	favorite = window.document.getElementById("favorite");
+    selAlbums = document.getElementById("albums");
+    playing = document.getElementById("playing");
+
 var Jukebox = function () {
     "use strict";
     var albums = [], self;
@@ -46,10 +51,30 @@ jbox.addAlbum(album1);
 jbox.addAlbum(album2);
 jbox.addAlbum(album3);
 
-album1.play();
+/*album1.play();
 album1.play();
 album1.play();
 album2.play();
-album3.play();
+album3.play();*/
 
-window.console.log("You favorite album is: " + jbox.favoriteAlbum());
+play.addEventListener("click", function () {
+	   "use strict";
+		window.console.log("You clicked 'play' button");
+		var song = selAlbums.options[selAlbums.selectedIndex].text;
+	    window.console.log("you selected song ", song);
+		playing.innerHTML = "Playing song:  " + song + " !";
+	    /*var G=document.getElementsByTagName('optgroup');
+		var selAlbum = G[selectedIndex].label;
+        window.alert("Selected Album", selAlbum);*/
+        /*To get a list of the options of the second optgroup:
+        var ops=G[1].getElementsByTagName('option')*/
+	});
+
+favorite.addEventListener("click", function () {
+	   "use strict";
+		window.console.log("You clicked 'favorite' button");
+		window.console.log("You favorite album is: " + jbox.favoriteAlbum());
+		document.getElementById("favOutput").innerHTML = jbox.favoriteAlbum();
+});
+
+

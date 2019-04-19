@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 7 - The Jukebox Application (30 Points)</title>
+    <script src="js/jukebox.js"></script>
+    <style>
+		label {
+			font-weight: bold;
+		}
+		select, option {
+			font-size: 1.1em;
+		}
+		select {
+			width: 50%;
+			margin-bottom: 15px;
+		}
+		input[type=submit], button {
+			background-color: cadetblue;
+			padding: 5px 10px;
+			color: #fff;
+		}
+
+	</style>
+</head>
+<body>
+    <h1>The Jukebox</h1>
+     <form action="#">
+         <fieldset>
+          	<legend>Play your favorite albums</legend>
+
+            <label for="album1">Album 1:</label>
+                <select name="album1" id="album1">
+                    <option value="">-Select</option>
+                    <option value="Operation Ivy">Operation Ivy</option>
+                    <option value="Energy">Energy</option>
+                </select>
+            <br><br>
+
+            <label for="album2">Album 2:</label>
+                <select name="album2" id="album2">
+                    <option value="">-Select</option>
+                    <option value="Blink 182">Blink 182</option>
+                    <option value="Dude Ranch">Dude Ranch</option>
+                </select>
+            <br><br>
+            <label for="album3">Album 3:</label>
+                <select name="album3" id="album3">
+                    <option value="">-Select</option>
+                    <option value="New Found Glory">New Found Glory</option>
+                    <option value="Sticks and Stones">Sticks and Stones</option>
+                </select>
+            <br><br>
+            <input type="submit" value="Play">
+           </fieldset>
+      </form>
+      <p id="favoriteAlbum">
+       	   <button id="favorite">Show your Favorite Album</button>
+      </p>
+
+    <!-- ADD DROP DOWN MENU -->
+    <!-- ADD PLAY BUTTON -->
+    <!-- ADD SHOW FAVORITE ALBUM BUTTON -->
+   <select>
+  <optgroup label="Options 1">
+     <option>Option 1.1</option>
+     <option>Option 1.2</option>
+  </optgroup>
+  <optgroup label="Options 2">
+     <option>Option 2.1</option>
+     <option>Option 2.2</option>
+  </optgroup>
+</select>
+</body>
+</html>
