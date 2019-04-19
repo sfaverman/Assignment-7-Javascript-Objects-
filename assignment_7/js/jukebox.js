@@ -1,9 +1,10 @@
 /*eslint-env browser*/
 
-var play = window.document.getElementById("play"),
-	favorite = window.document.getElementById("favorite");
-    selAlbums = document.getElementById("albums");
-    playing = document.getElementById("playing");
+var $ = function (id) {
+    "use strict";
+    return window.document.getElementById(id);
+};
+
 
 var Jukebox = function () {
     "use strict";
@@ -43,6 +44,19 @@ var Album = function (artist, title) {
 };
 
 var jbox = new Jukebox();
+
+/*
+var dropdown = document.getElementsById('albums');
+var optgroups = dropdown.getElementsByTagName('optgroup');
+
+var results = [];
+for(var i = 0; i < optgroups.length; i++) {
+    results.push(optgroups[i].getAttribute('value'));
+}
+
+window.alert(results);*/
+
+
 var album1 = new Album("Operation Ivy", "Energy");
 var album2 = new Album("Blink 182", "Dude Ranch");
 var album3 = new Album("New Found Glory", "Sticks and Stones");
@@ -57,24 +71,40 @@ album1.play();
 album2.play();
 album3.play();*/
 
-play.addEventListener("click", function () {
-	   "use strict";
-		window.console.log("You clicked 'play' button");
-		var song = selAlbums.options[selAlbums.selectedIndex].text;
-	    window.console.log("you selected song ", song);
-		playing.innerHTML = "Playing song:  " + song + " !";
-	    /*var G=document.getElementsByTagName('optgroup');
-		var selAlbum = G[selectedIndex].label;
-        window.alert("Selected Album", selAlbum);*/
-        /*To get a list of the options of the second optgroup:
-        var ops=G[1].getElementsByTagName('option')*/
+
+window.addEventListener("load", function () {
+	"use strict";
+
+	// list album labels
+	var groups = $("albums").getElementsByTagName("optgroup");
+	window.console.log(groups[0].label);
+	window.console.log(groups[1].label);
+	window.console.log(groups[2].label);
+
+	var song;
+
+	$("play").addEventListener("click", function (e) {
+		   "use strict";
+		    e.preventDefault();
+			window.console.log("You clicked 'play' button");
+		    window.console.log("Selected option index" + $("albums").selectedIndex);
+			/*song = $("albums").options[$("albums").selectedIndex].value;*/
+			/* window.console.log("you selected song ", song);*/
+
+			/* $("playing").innerHTML = "Playing song:  " + song + " !";*/
+			/*var G=document.getElementsByTagName('optgroup');
+			var selAlbum = G[selectedIndex].label;
+			window.alert("Selected Album", selAlbum);*/
+			/*To get a list of the options of the second optgroup:
+			var ops=G[1].getElementsByTagName('option')*/
 	});
 
-favorite.addEventListener("click", function () {
-	   "use strict";
-		window.console.log("You clicked 'favorite' button");
-		window.console.log("You favorite album is: " + jbox.favoriteAlbum());
-		document.getElementById("favOutput").innerHTML = jbox.favoriteAlbum();
+	$("favorite").addEventListener("click", function () {
+		   "use strict";
+			window.console.log("You clicked 'favorite' button");
+			window.console.log("You favorite album is: " + jbox.favoriteAlbum());
+			$("favOutput").innerHTML = jbox.favoriteAlbum();
+	});
 });
 
 
